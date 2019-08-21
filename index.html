@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: {
+        families: ['Inconsolata:400,700', 'Lora:400,700', 'Arimo:400,700']
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+
+  <title>Clouds</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#28112c" />
+  <link rel="stylesheet/less" type="text/css" href="css/style.less" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+<!--
+  <link rel="stylesheet" type="text/less" href="css/styles.less" />
+ <link rel="stylesheet/less" href="css/style.less" type="text/css" /> -->
+</head>
+
+<body>
+
+  <div id="clouds" class="clouds">
+
+
+    <div id="init-cloud" class="clouds__init particle">
+
+
+      </div>
+    <!--
+    <div class="clouds__frame">
+
+      </div>-->
+  </div>
+
+
+
+  <script>
+    var scriptElement=document.createElement('script');
+scriptElement.type = 'text/javascript';
+scriptElement.src = "js/clouds.js";
+document.head.appendChild(scriptElement);
+
+  </script>
+
+</body>
+
+</html>
