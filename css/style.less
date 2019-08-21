@@ -18,23 +18,36 @@ html {
   font-family: 'Lora', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url('img/sky1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a:link, a:visited, a:hover, a:active {  }
 
 nav {}
 
+li {list-style-type: none;}
+
+ul {padding: 0;}
+
+h1 {
+  font-size: 22px;
+}
+
 .clouds {
 display: flex;
 justify-content: center;;
 align-items: center;
+height: 100%;
+margin-top: -70px;
 }
 
 .particle {
   width: 10vw;
   height: 0;
   padding-bottom: 10vw;
-  background-color:rgba(0,0,0,0.1);
+  background-color:rgba(111,111,111,0.5);
   border-radius: 50%;
 position: absolute;
 
@@ -48,4 +61,14 @@ position: absolute;
 
 .clouds__init {
 
+}
+
+.clouds__form {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  top: 0px;
+  background-color:rgba(255,255,255,0.5);
+  height: 100%;
+  padding: 10px 30px;
 }
