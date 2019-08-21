@@ -1,19 +1,16 @@
 let CLOUDS = (function() {
   let stability = 8;
   let temp = 5;
-  let moisture = 2;
-  console.log(`${stability} | ${temp} | ${stability}`);
-  //  let stability = 33; // more about the condenseness of parts /  less drastic /  less weighted / goes down if higher than 75
-  //  let temp = -33; // more drastic / weighted
-  //  let moist = 33; // less drastic /  less weighted / goes down if higher than 75
+  let moisture = 3;
   let parts = [];
+
   const cvs = {
     element: document.getElementById('clouds'),
     initialize: function() {
       this.width = window.innerWidth;
-      this.height = 450;
+      this.height = 250;
       this.element.style.width = `${this.width}px`;
-      this.element.style.height = `450px`;
+      this.element.style.height = `250px`;
       document.body.appendChild(this.element);
     },
   };
@@ -23,7 +20,7 @@ let CLOUDS = (function() {
   let ylow = 0 - temp;
   let yhigh = 0 - temp;
 
-  let Part = {
+  const Part = {
     create: function() {
       const newPart = Object.create(this);
 
@@ -40,16 +37,6 @@ let CLOUDS = (function() {
       newPart.element.style.left = `${newPart.x}%`;
       newPart.element.style.marginTop = `${newPart.y}%`;
 
-      /*
-            jQuery(newPart.element).css({
-              width: `${newPart.radius}px`,
-              height: `${newPart.radius}px`,
-              backgroundColor: `hsl(${newPart.color},100%, ${newPart.light}%)`,
-              left: `${newPart.x}px`,
-              top: `${newPart.y}px`,
-            });
-            */
-
       newPart.element.classList.add('particle');
       newPart.element.classList.add('remove');
       cvs.element.appendChild(newPart.element);
@@ -59,7 +46,7 @@ let CLOUDS = (function() {
   };
   const rndmRng = (h, l) => Math.random() * (h - l) + l;
 
-  /**   */
+  /**  create particle  */
   function newPart() {
     while (parts.length < 100) {
       parts.push(Part.create());
@@ -67,32 +54,17 @@ let CLOUDS = (function() {
     darken();
   }
 
+  /**  assign background to particles  */
   function darken() {
-    elements = document.getElementsByClassName('particle');
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor=`rgba(111,111,111,0.${moisture})`;
+    const elements = document.getElementsByClassName('particle');
+    for (let i = 0; i < elements.length; i++) {
+      let light = Math.round(255 / (moisture / 2));
+      light = rndmRng((light), (light - 50));
+      elements[i].style.backgroundColor = `rgba(${light},${light},${light},0.${moisture})`;
     }
-}
-  /*
-    let timeout = false;
-    window.addEventListener('resize', function() {
-      clearTimeout(timeout);
-      timeout = setTimeout(doneResizing, 800);
-    });
+  }
 
-    function doneResizing() {
-      circles = [];
-      count = 0;
-      const selectTag = document.getElementsByClassName('circle');
-      while (selectTag[0]) {
-        selectTag[0].parentNode.removeChild(selectTag[0]);
-      }
-      cvs.initialize();
-      newPartle();
-    }
-    */
-
-  const removeElements = (elms) => elms.forEach(el => el.remove());
+  const removeElements = (elms) => elms.forEach((el) => el.remove());
 
   document.getElementById('generate').addEventListener('click', function(e) {
     e.preventDefault();
@@ -101,16 +73,14 @@ let CLOUDS = (function() {
     xhigh = 45;
     ylow = 0 - temp;
     yhigh = 0 - temp;
-    removeElements( document.querySelectorAll('.remove'));
+    removeElements(document.querySelectorAll('.remove'));
     stability = Math.abs(document.getElementById('stable').value - 15);
     temp = Math.abs(document.getElementById('temp').value - 10);
     moisture = document.getElementById('moisture').value;
-console.log(`${stability} | ${temp} | ${stability}`);
     cvs.initialize();
     newPart();
   });
 
   cvs.initialize();
   newPart();
-
 })();

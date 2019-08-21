@@ -4,7 +4,7 @@
   <script type="text/javascript">
     WebFontConfig = {
       google: {
-        families: ['Inconsolata:400,700', 'Lora:400,700', 'Arimo:400,700']
+        families: ['Libre+Baskerville', 'Nanum+Gothic+Coding']
       }
     };
     (function() {
@@ -21,12 +21,9 @@
   <title>Clouds</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#28112c" />
+  <meta name="theme-color" content="#DDDDDD" />
   <link rel="stylesheet/less" type="text/css" href="css/style.less" />
   <script src="js/less.min.js"></script>
-  <!--
-  <link rel="stylesheet" type="text/less" href="css/styles.less" />
- <link rel="stylesheet/less" href="css/style.less" type="text/css" /> -->
 </head>
 
 <body>
@@ -34,46 +31,46 @@
   <div id="clouds" class="clouds">
     <div id="init-cloud" class="clouds__init particle">
     </div>
-    <div class="clouds__form">
-      <form id="generator">
-        <ul class="form-wrapper">
-          <li class="form-row darker">
-            <h1>Generate Clouds</h1>
-          </li>
-          <li class="form-row">
-            <label>Stability: </label>
-            <div>
-              <span class="form-small-txt">stable -------> unstable</span>
-              <br />
-              <input type="range" id="stable" name="stable" min="4" max="10">
-            </div>
-          </li>
-          <li class="form-row">
-            <label>Moisture: </label>
-            <div>
-              <span class="form-small-txt">low &nbsp;--------->&nbsp; high</span>
-              <br />
-              <input type="range" id="moisture" name="moisture" min="1" max="5">
-            </div>
-          </li>
-          <li class="form-row">
-            <label>Temperature:</label>
-            <div>
-              <span class="form-small-txt">low &nbsp;--------->&nbsp; high</span>
-              <br />
-              <input type="range" id="temp" name="temp" min="0" max="10">
-            </div>
-          </li>
-          <li class="form-row darker">
-            <input type="submit" id="generate" value="Generate" />
-          </li>
-        </ul>
-      </form>
-    </div>
+  </div>
+  <div class="clouds__form">
+    <form id="generator">
+      <ul class="form-wrapper">
+        <li class="form-row darker">
+          <h1>Generate Clouds</h1>
+        </li>
+        <li class="form-row">
+          <label>Stability: </label>
+          <div>
+            <span class="form-small-txt">stable -------> unstable</span>
+            <br />
+            <input type="range" id="stable" name="stable" min="4" max="10">
+          </div>
+        </li>
+        <li class="form-row">
+          <label>Moisture: </label>
+          <div>
+            <span class="form-small-txt">low &nbsp;--------->&nbsp; high</span>
+            <br />
+            <input type="range" id="moisture" name="moisture" min="1" max="5">
+          </div>
+        </li>
+        <li class="form-row">
+          <label>Temperature:</label>
+          <div>
+            <span class="form-small-txt">low &nbsp;--------->&nbsp; high</span>
+            <br />
+            <input type="range" id="temp" name="temp" min="0" max="10">
+          </div>
+        </li>
+        <li class="form-row darker">
+          <input type="submit" id="generate" value="Generate" />
+        </li>
+      </ul>
+    </form>
   </div>
 
   <script>
-    var scriptElement = document.createElement('script');
+    const scriptElement = document.createElement('script');
     scriptElement.type = 'text/javascript';
     scriptElement.src = "js/clouds.js";
     document.head.appendChild(scriptElement);
